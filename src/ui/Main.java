@@ -233,7 +233,8 @@ public class Main{
 						   "(2) Para entrar en creacion de PlayList\n" +
 						   "(3) Para Ver la lista de PlayLists\n" +
 						   "(4) Para Añadir una cancion a una PlayList Existente\n" +
-						   "(5) Para Añadir una calificaciona una PlayList Publica Existente"
+						   "(5) Para Añadir una calificaciona una PlayList Publica Existente\n" +
+						   "(6) Para Añadir un Usuario a una PlayList Restringida Existente"
 						   );
 		option = sc.nextInt();
 		sc.nextLine();
@@ -271,6 +272,9 @@ public class Main{
 		break;
 		case 5:
 		addGrade();
+		break;
+		case 6:
+		addUsertoRestrictedPlayList();
 		}
 	}
 	/**
@@ -368,12 +372,13 @@ public class Main{
 		
 		int option1 = 0;
 		
-		String text = "Seleccione un usuario que puede Modificar la playlist" + musicCenter.usersNames();
+		String text = "Seleccione un usuario que puede Modificar la playlist\n" + musicCenter.usersNames();
+		System.out.println(text);
 		option1 = sc.nextInt();
 		sc.nextLine();
 		users = musicCenter.addChoosedUser(option1);
 		
-		System.out.println("Ingrese el titulo del album");
+		System.out.println("Ingrese el titulo de la playlist");
 		title = sc.nextLine();
 		
 		musicCenter.addPlaylist(title, users);
@@ -442,6 +447,23 @@ public class Main{
 		sc.nextLine();
 		musicCenter.calculateAverage(option1, grade);
 		
+	}
+	/**
+	*method that adds a user to the list of users that can modifie a restricted playlist
+	*pre: a restricted playList exist, a user exist
+	*pos: the list of users that can modifie the choosed restricted playlist will be changed
+	*/
+	public void addUsertoRestrictedPlayList(){
+	
+	int userPos = 0;
+	int playListPos = 0;
+	System.out.println(musicCenter.restrictedPlayList());
+	playListPos = sc.nextInt();
+	sc.nextLine();
+	System.out.println(musicCenter.usersNames());
+	userPos = sc.nextInt();
+	sc.nextLine();
+	musicCenter.addUsertoRestrictedPlayList(userPos, playListPos);
 	}
 }
 

@@ -61,4 +61,26 @@ public class Restricted extends Playlist{
 		
 		
 	}
+	/**
+	*method that searchs the first empty position in the array usersThatControl and adds an user in that position
+	*pre: A Restricted playlistExist
+	*pos: the array usersThatControl has a new user in the first empty position
+	*@param user, is the user that will be added
+	*/
+	public void addNewUserThatControls(User user){
+		
+		boolean out = false;
+		
+		int pos = 0;
+		
+		for(int i=0; i < usersThatControl.length && !out ;i++){
+
+			if(usersThatControl[i] == null){
+			
+				pos = i;
+				out = true;
+			}
+		}
+		usersThatControl[pos] = user;
+	}
 }

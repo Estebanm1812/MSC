@@ -45,6 +45,11 @@ public class User{
 		
 		this.userCategory = userCategory;
 	}
+	/**
+	*method that shows The import information of the user
+	*pre: the user is created
+	*@return information, a String with the import information of the user;
+	*/
 	public String userInformation(){
 		
 		String information = " **********User*******\n " + " **Username: " + getName() + " \n" +
@@ -53,6 +58,11 @@ public class User{
 		
 		return information;
 		}
+	/**
+	*method that shows the name of the user
+	*pre: the user is created
+	*@return text, a String with the name of the user;
+	*/
 	public String userListJustName(){
 		
 		String text = "";

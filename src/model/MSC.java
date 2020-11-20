@@ -406,7 +406,6 @@ public class MSC{
 	/**
 	*method that shows just name of the Public Playlist and their position in the array playListCollection
 	*@return text, a String with the names and position in the array of the current playLists
-	
 	*/
 	public String showJustPublicPlayLists(){
 		
@@ -419,5 +418,38 @@ public class MSC{
 				text+= " (" + i + ") " + playListCollection[i].getPlayListName() + " \n";
 		}
 	return text;	
+	}
+	/**
+	*method that adds a user to the list of users that can control a restricted playlist
+	*pre: users exist, a Restricted playList exist
+	*pos: there will be a user in the first empty position in the array usersThatControl
+	*@param position, it is the position of the choosed user in the array userList
+	*@param playlistPos, it is the position of the choosed Restricted playlist in the playListCollection
+	*/
+	public void addUsertoRestrictedPlayList(int position, int playlistPos){
+		
+		User tmp = userlist[position];
+		
+		
+		
+		((Restricted)playListCollection[playlistPos]).addNewUserThatControls(tmp);
+	
+	}
+	/**
+	*method that shows just name of the Restricted Playlist and their position in the array playListCollection
+	*@return text, a String with the names and position in the array of the current playLists
+	*/
+	public String restrictedPlayList(){
+		
+		String text = "";
+		
+		for(int i=0; i<playListCollection.length;i++){
+		
+			if((playListCollection[i] != null)&&(playListCollection[i] instanceof Restricted))
+		
+				text+= " (" + i + ") " + playListCollection[i].getPlayListName() + " \n";
+		}
+	return text;
+		
 	}
 }
